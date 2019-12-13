@@ -10,4 +10,12 @@ class Project
         ProjectBacker.new(self, backer)
     end
 
+    def backers
+
+         #takes Project Backer and collects an array of ProjectBacker of Objects
+        result = ProjectBacker.all.select {|pair| pair.project == self }
+        #returns Project Backer, but only the backer portion of the ProjectBacker object 
+        return  result.map {|pair| pair.backer }
+    end 
+
 end
